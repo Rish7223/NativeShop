@@ -1,3 +1,3 @@
 # NativeShop
 
-A full fledge E-Commerce app using React native & Expo
+A full fledged E-Commerce app using React native & Expo
