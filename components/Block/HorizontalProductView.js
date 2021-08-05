@@ -1,0 +1,56 @@
+import React from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import COLORS from '../../constants/COLORS';
+import UiButton from '../UI/Button';
+import UiText from '../UI/Text';
+import ProductCardBlock from './ProductCard';
+
+const HorizontalProductView = ({ data, headTitle }) => {
+  return (
+    <View style={Styles.container}>
+      <View style={Styles.head}>
+        <UiText style={Styles.heading}>{headTitle}</UiText>
+        <UiButton
+          textStyle={Styles.heading}
+          onPress={() => {
+            console.log('See All Clicked');
+          }}
+        >
+          See All
+        </UiButton>
+      </View>
+      <ScrollView
+        style={Styles.dataSec}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      >
+        {data.map((product) => (
+          <ProductCardBlock key={product.id} data={product} />
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
+
+const Styles = StyleSheet.create({
+  container: {
+    marginVertical: 20,
+  },
+  head: {
+    paddingHorizontal: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  heading: {
+    fontSize: 16,
+    fontFamily: 'Nunito-Bold',
+    color: COLORS.primaryColor,
+  },
+  dataSec: {
+    marginTop: 20,
+    paddingHorizontal: 15,
+  },
+});
+
+export default HorizontalProductView;
