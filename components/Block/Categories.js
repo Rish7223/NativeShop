@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { CATEGORIES } from '../../dummy_data/products';
-import UiButton from '../UI/Button';
+import UiCategoryButton from '../UI/CategoryButton';
 
 const CategoriesBlock = () => {
   return (
@@ -12,13 +12,12 @@ const CategoriesBlock = () => {
         style
       >
         {CATEGORIES.map((data) => (
-          <UiButton
+          <UiCategoryButton
             style={{ backgroundColor: data.color, ...Styles.button }}
             key={data.id}
+            data={data}
             textStyle={Styles.btnText}
-          >
-            {data.name}
-          </UiButton>
+          />
         ))}
       </ScrollView>
     </View>
@@ -30,7 +29,7 @@ const Styles = StyleSheet.create({
     marginVertical: 20,
   },
   button: {
-    paddingHorizontal: 40,
+    paddingHorizontal: 15,
     paddingVertical: 15,
     borderRadius: 10,
     marginHorizontal: 15,

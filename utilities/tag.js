@@ -3,7 +3,7 @@ export const getTag = (name) => {
     case `men's clothing`:
       return 'For Man';
     case `women's clothing`:
-      return 'For Woman';
+      return 'For Women';
     default:
       return name;
   }

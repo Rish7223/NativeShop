@@ -35,10 +35,7 @@ const Products = ({ navigation }) => {
         <UiText style={styles.heading}>NativeShop</UiText>
         <UiText style={styles.subHeading}>A perfect shoppers stop</UiText>
       </View>
-      {/* category block */}
       <CategoriesBlock />
-
-      {/* products View popular */}
       <HorizontalProductView data={data} headTitle="Popular Products" />
       <View style={styles.empty}></View>
     </UiView>

@@ -60,7 +60,7 @@ const Styles = StyleSheet.create({
   },
 
   infoSec: {
-    paddingTop: 20,
+    paddingTop: 30,
     paddingHorizontal: 10,
     position: 'relative',
   },
