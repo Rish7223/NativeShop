@@ -7,6 +7,8 @@ export default {
   bgColor: '#FDFDFD',
   white: '#ffffff',
 
+  red: '#fe2367',
+
   blue: '#C4E0F9',
   blueLight: '#EEF6FF',
   orange: '#FA8454',

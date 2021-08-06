@@ -36,7 +36,11 @@ const Products = ({ navigation }) => {
         <UiText style={styles.subHeading}>A perfect shoppers stop</UiText>
       </View>
       <CategoriesBlock />
-      <HorizontalProductView data={data} headTitle="Popular Products" />
+      <HorizontalProductView
+        data={data}
+        navigation={navigation}
+        headTitle="Popular Products"
+      />
       <View style={styles.empty}></View>
     </UiView>
   );

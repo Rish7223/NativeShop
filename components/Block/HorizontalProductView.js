@@ -1,11 +1,11 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import COLORS from '../../constants/COLORS';
 import UiButton from '../UI/Button';
 import UiText from '../UI/Text';
 import ProductCardBlock from './ProductCard';
 
-const HorizontalProductView = ({ data, headTitle }) => {
+const HorizontalProductView = ({ data, headTitle, navigation }) => {
   return (
     <View style={Styles.container}>
       <View style={Styles.head}>
@@ -25,7 +25,16 @@ const HorizontalProductView = ({ data, headTitle }) => {
         showsHorizontalScrollIndicator={false}
       >
         {data.map((product) => (
-          <ProductCardBlock key={product.id} data={product} />
+          <Pressable
+            key={product.id}
+            onPress={() =>
+              navigation.navigate('ProductDetail', {
+                productData: product,
+              })
+            }
+          >
+            <ProductCardBlock data={product} />
+          </Pressable>
         ))}
       </ScrollView>
     </View>

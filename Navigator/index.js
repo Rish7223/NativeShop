@@ -1,16 +1,32 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
-import Products from '../screens/Products';
-import Cart from '../screens/Cart';
-import Profile from '../screens/Profile';
 import { Ionicons } from '@expo/vector-icons';
 import COLORS from '../constants/COLORS';
 import { createAppContainer } from 'react-navigation';
 
+import Products from '../screens/Products';
+import Cart from '../screens/Cart';
+import Profile from '../screens/Profile';
+import ProductDetail from '../screens/ProductDetail';
+
+const ProductStackNavigator = createStackNavigator(
+  {
+    Products: {
+      screen: Products,
+    },
+    ProductDetail: {
+      screen: ProductDetail,
+    },
+  },
+  {
+    headerMode: 'none',
+  }
+);
+
 const tabScreensConfig = {
   Products: {
-    screen: Products,
+    screen: ProductStackNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => (
         <Ionicons name="home-outline" size={25} color={tabInfo.tintColor} />

@@ -2,14 +2,25 @@ import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import COLORS from '../../constants/COLORS';
 import { StyleSheet, View } from 'react-native';
-import UiText from '../UI/Text';
+import UiIconButton from '../UI/IconButton';
 
-const UiHeader = ({ navigation, title = 'Products' }) => {
+const UiHeader = ({ navigation, onPress, isFav }) => {
   return (
     <View style={Styles.header}>
       <View style={Styles.leftContent}>
-        <AntDesign name="arrowleft" size={25} color={COLORS.primaryColor} />
-        <UiText style={Styles.heading}>{title}</UiText>
+        <UiIconButton onPress={() => navigation.goBack()}>
+          <AntDesign name="arrowleft" size={25} color={COLORS.primaryColor} />
+        </UiIconButton>
+        {/* <UiText style={Styles.heading}>{title}</UiText> */}
+      </View>
+      <View>
+        <UiIconButton onPress={onPress}>
+          <AntDesign
+            name={isFav ? 'heart' : 'hearto'}
+            size={25}
+            color={isFav ? COLORS.red : COLORS.black}
+          />
+        </UiIconButton>
       </View>
     </View>
   );
@@ -17,14 +28,14 @@ const UiHeader = ({ navigation, title = 'Products' }) => {
 
 const Styles = StyleSheet.create({
   header: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     paddingVertical: 15,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     position: 'absolute',
     width: '100%',
-    top: 40,
+    top: 30,
   },
   leftContent: {
     flexDirection: 'row',
