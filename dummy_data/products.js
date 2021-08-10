@@ -185,6 +185,46 @@ export default [
   },
 ];
 
+export const PopularProducts = [
+  {
+    id: 2,
+    title: 'Slim Fit T-Shirts ',
+    price: 22.3,
+    description:
+      'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
+    category: "men's clothing",
+    image:
+      'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
+  },
+  {
+    id: 11,
+    title: 'Power 256GB SSD',
+    price: 109,
+    description:
+      '3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.',
+    category: 'electronics',
+    image: 'https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg',
+  },
+  {
+    id: 19,
+    title: 'Short Sleeve Moisture',
+    price: 7.95,
+    description:
+      '100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort',
+    category: "women's clothing",
+    image: 'https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg',
+  },
+  {
+    id: 5,
+    title: 'Chain Bracelet',
+    price: 695,
+    description:
+      "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+    category: 'jewelery',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+  },
+];
+
 export const CATEGORIES = [
   { id: 101, name: "men's clothing", color: COLORS.blueLight },
   { id: 102, name: "women's clothing", color: COLORS.pinkLight },

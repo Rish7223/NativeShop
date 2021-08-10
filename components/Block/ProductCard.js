@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View, ImageBackground } from 'react-native';
 import COLORS from '../../constants/COLORS';
 import { getTag } from '../../utilities/tag';
 import UiIconButton from '../UI/IconButton';
@@ -10,10 +10,11 @@ const ProductCardBlock = ({ data }) => {
   return (
     <View style={Styles.container}>
       <View style={Styles.imageSec}>
-        <Image
+        <ImageBackground
           source={{
             uri: data.image,
           }}
+          resizeMode="center"
           style={Styles.productImage}
         />
       </View>
@@ -41,7 +42,7 @@ const Styles = StyleSheet.create({
     backgroundColor: COLORS.lightGrayColor,
     position: 'relative',
     padding: 10,
-    marginRight: 20,
+    marginHorizontal: 15,
   },
   imageSec: {
     width: '100%',
@@ -49,14 +50,13 @@ const Styles = StyleSheet.create({
     height: '100%',
     borderRadius: 20,
     overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 15,
     backgroundColor: COLORS.bgColor,
   },
 
   productImage: {
-    height: '90%',
-    width: '55%',
+    height: '100%',
+    width: '100%',
   },
 
   infoSec: {

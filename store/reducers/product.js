@@ -1,9 +1,9 @@
 import { GET_PRODUCTS_BY_CATEGORY, GET_PRODUCT_DETAIL } from '../actions/types';
-import PRODUCTS from '../../dummy_data/products';
+import PRODUCTS, { PopularProducts } from '../../dummy_data/products';
 const initialState = {
   products: PRODUCTS,
   categoryProducts: [],
-  productDetail: {},
+  popularProducts: PopularProducts,
   loading: false,
 };
 

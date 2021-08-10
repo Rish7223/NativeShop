@@ -58,7 +58,6 @@ const Styles = StyleSheet.create({
   },
   dataSec: {
     marginTop: 20,
-    paddingHorizontal: 15,
   },
 });
 

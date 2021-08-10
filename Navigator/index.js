@@ -9,6 +9,7 @@ import Products from '../screens/Products';
 import Cart from '../screens/Cart';
 import Profile from '../screens/Profile';
 import ProductDetail from '../screens/ProductDetail';
+import Category from '../screens/Category';
 
 const ProductStackNavigator = createStackNavigator(
   {
@@ -17,6 +18,9 @@ const ProductStackNavigator = createStackNavigator(
     },
     ProductDetail: {
       screen: ProductDetail,
+    },
+    Category: {
+      screen: Category,
     },
   },
   {

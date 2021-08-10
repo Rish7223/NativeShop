@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { CATEGORIES } from '../../dummy_data/products';
 import UiCategoryButton from '../UI/CategoryButton';
 
-const CategoriesBlock = () => {
+const CategoriesBlock = ({ navigation }) => {
   return (
     <View style={Styles.content}>
       <ScrollView
@@ -17,6 +17,11 @@ const CategoriesBlock = () => {
             key={data.id}
             data={data}
             textStyle={Styles.btnText}
+            onPress={() =>
+              navigation.navigate('Category', {
+                categoryName: data,
+              })
+            }
           />
         ))}
       </ScrollView>

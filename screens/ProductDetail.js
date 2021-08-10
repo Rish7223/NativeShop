@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Image, Pressable, StyleSheet, View } from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  Pressable,
+  StyleSheet,
+  View,
+} from 'react-native';
 import UiText from '../components/UI/Text';
 import { Feather } from '@expo/vector-icons';
 import UiHeader from '../components/Block/Header';
@@ -22,10 +28,11 @@ const ProductDetail = ({ navigation }) => {
         isFav={isFavItem}
       />
       <View style={Styles.imageView}>
-        <Image
+        <ImageBackground
           source={{
             uri: productData.image,
           }}
+          resizeMode="center"
           style={Styles.productImage}
         />
       </View>
@@ -35,8 +42,8 @@ const ProductDetail = ({ navigation }) => {
           <View style={Styles.empty}></View>
         </UiView>
         <Pressable style={Styles.addToCart}>
-          <Feather name="shopping-cart" size={25} color={COLORS.white} />
-          <UiText style={Styles.addBtnText}>Add to cart</UiText>
+          <Feather name="shopping-cart" size={20} color={COLORS.white} />
+          {/* <UiText style={Styles.addBtnText}>Add to cart</UiText> */}
         </Pressable>
       </View>
     </View>
@@ -52,12 +59,11 @@ const Styles = StyleSheet.create({
 
   imageView: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingVertical: 40,
   },
   productImage: {
-    height: 200,
-    width: 150,
+    height: '100%',
+    width: '100%',
     transform: [{ translateY: 30 }],
   },
   infoView: {
@@ -78,19 +84,19 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     bottom: 10,
+    right: 10,
     alignSelf: 'center',
-    paddingVertical: 15,
-    width: '95%',
-    borderRadius: 20,
-    elevation: 2,
+    padding: 15,
+    borderRadius: 50,
+    elevation: 5,
     backgroundColor: COLORS.primaryColor,
   },
-  addBtnText: {
-    marginLeft: 20,
-    fontSize: 20,
-    fontFamily: 'Nunito-SemiBold',
-    color: COLORS.white,
-  },
+  // addBtnText: {
+  //   marginLeft: 20,
+  //   fontSize: 20,
+  //   fontFamily: 'Nunito-SemiBold',
+  //   color: COLORS.white,
+  // },
 
   empty: {
     minHeight: 50,

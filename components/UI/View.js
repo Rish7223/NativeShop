@@ -4,7 +4,11 @@ import COLORS from '../../constants/COLORS';
 
 const UiView = ({ children, style }) => {
   return (
-    <ScrollView style={{ ...Styles.screen, ...style }}>{children}</ScrollView>
+    <View style={{ ...Styles.screen }}>
+      <ScrollView style={{ ...Styles.container, ...style }}>
+        {children}
+      </ScrollView>
+    </View>
   );
 };
 
@@ -13,6 +17,9 @@ const Styles = StyleSheet.create({
     backgroundColor: COLORS.bgColor,
     position: 'relative',
     flex: 1,
+  },
+  container: {
+    width: '100%',
   },
 });
 

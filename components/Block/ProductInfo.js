@@ -17,20 +17,22 @@ const ProductInfoBlock = ({ data }) => {
         </View>
         <UiText style={Styles.price}>${data.price}</UiText>
       </View>
-      <View style={Styles.size}>
-        <UiText style={Styles.head}>Size</UiText>
-        <View style={Styles.sizes}>
-          {sizes.map((data) => (
-            <UiButton
-              style={Styles.sizeBar}
-              key={data}
-              textStyle={Styles.sizeBarText}
-            >
-              {data}
-            </UiButton>
-          ))}
+      {data.category !== 'electronics' && (
+        <View style={Styles.size}>
+          <UiText style={Styles.head}>Size</UiText>
+          <View style={Styles.sizes}>
+            {sizes.map((data) => (
+              <UiButton
+                style={Styles.sizeBar}
+                key={data}
+                textStyle={Styles.sizeBarText}
+              >
+                {data}
+              </UiButton>
+            ))}
+          </View>
         </View>
-      </View>
+      )}
       <View style={Styles.description}>
         <UiText style={Styles.head}>Description</UiText>
         <UiText style={Styles.descriptionText}>{data.description}</UiText>
@@ -67,7 +69,7 @@ const Styles = StyleSheet.create({
     transform: [{ translateY: 15 }],
   },
   size: {
-    marginVertical: 20,
+    marginTop: 20,
   },
   sizes: {
     flexDirection: 'row',
@@ -89,7 +91,7 @@ const Styles = StyleSheet.create({
     fontSize: 17,
   },
   description: {
-    marginVertical: 10,
+    marginVertical: 20,
   },
   head: {
     fontSize: 18,

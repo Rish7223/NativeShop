@@ -36,6 +36,7 @@ const Styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     top: 30,
+    zIndex: 10,
   },
   leftContent: {
     flexDirection: 'row',
