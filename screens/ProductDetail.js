@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import {
-  Image,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  View,
-} from 'react-native';
-import UiText from '../components/UI/Text';
+import { ImageBackground, Pressable, StyleSheet, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import UiHeader from '../components/Block/Header';
 import COLORS from '../constants/COLORS';
 import UiView from '../components/UI/View';
 import ProductInfoBlock from '../components/Block/ProductInfo';
+import UiAlert from '../components/UI/Alert';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemToCart } from '../store/actions/cartActions';
 
 const ProductDetail = ({ navigation }) => {
   const [isFavItem, setIsFavItem] = useState(false);
   const productData = navigation.getParam('productData');
+  const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
   function toggleFavHandler() {
     setIsFavItem(!isFavItem);
@@ -39,12 +37,19 @@ const ProductDetail = ({ navigation }) => {
       <View style={Styles.infoView}>
         <UiView style={Styles.container}>
           <ProductInfoBlock data={productData} />
-          <View style={Styles.empty}></View>
         </UiView>
-        <Pressable style={Styles.addToCart}>
+        <Pressable
+          style={Styles.addToCart}
+          onPress={() => {
+            const isAlready = cartItems.find(
+              (item) => item.id === productData.id
+            );
+            addItemToCart(productData.id, dispatch, isAlready);
+          }}
+        >
           <Feather name="shopping-cart" size={20} color={COLORS.white} />
-          {/* <UiText style={Styles.addBtnText}>Add to cart</UiText> */}
         </Pressable>
+        <UiAlert />
       </View>
     </View>
   );
@@ -72,7 +77,7 @@ const Styles = StyleSheet.create({
     borderTopRightRadius: 30,
     backgroundColor: COLORS.bgColor,
     elevation: 40,
-    paddingVertical: 20,
+    paddingTop: 20,
   },
   container: {
     paddingHorizontal: 15,

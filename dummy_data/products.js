@@ -1,4 +1,3 @@
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import COLORS from '../constants/COLORS';
 
 export default [

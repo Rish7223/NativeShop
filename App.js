@@ -4,7 +4,6 @@ import AppLoading from 'expo-app-loading';
 import Navigation from './Navigator';
 import { Provider } from 'react-redux';
 import store from './store';
-
 // custom fonts
 const fontsData = {
   Nunito: require('./assets/font/Nunito-Regular.ttf'),
@@ -15,7 +14,6 @@ const fontsData = {
 
 export default function App() {
   const [loaded] = useFonts(fontsData);
-
   if (!loaded) {
     return <AppLoading />;
   }

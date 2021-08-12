@@ -43,7 +43,8 @@ const HorizontalProductView = ({ data, headTitle, navigation }) => {
 
 const Styles = StyleSheet.create({
   container: {
-    marginVertical: 20,
+    marginTop: 20,
+    marginBottom: 10,
   },
   head: {
     paddingHorizontal: 15,

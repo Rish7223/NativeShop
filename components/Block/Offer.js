@@ -8,7 +8,7 @@ const OfferBlock = () => {
   return (
     <View style={styles.offerBox}>
       <LinearGradient
-        colors={[COLORS.blue, COLORS.blueLight]}
+        colors={[COLORS.pink, COLORS.pinkLight]}
         start={{ x: 0.9, y: 0.3 }}
         style={styles.offer}
       >
@@ -27,25 +27,28 @@ const OfferBlock = () => {
 
 const styles = StyleSheet.create({
   offerBox: {
-    paddingHorizontal: 15,
+    marginHorizontal: 15,
+    overflow: 'hidden',
+    marginTop: 20,
+    marginBottom: 10,
+    borderRadius: 10,
   },
   offer: {
     paddingHorizontal: 15,
     height: 70,
-    borderRadius: 10,
     alignItems: 'flex-end',
     justifyContent: 'center',
     position: 'relative',
   },
   offerText: {
-    color: COLORS.primaryColor,
+    color: COLORS.white,
     fontFamily: 'Nunito-Bold',
-    fontSize: 17,
+    fontSize: 20,
   },
   offerCodeText: {
     fontFamily: 'Nunito-SemiBold',
     fontSize: 15,
-    color: COLORS.primaryColor,
+    color: COLORS.white,
   },
   giftBox: {
     position: 'absolute',

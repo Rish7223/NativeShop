@@ -28,6 +28,20 @@ const ProductStackNavigator = createStackNavigator(
   }
 );
 
+const CartStackNavigator = createStackNavigator(
+  {
+    Cart: {
+      screen: Cart,
+    },
+    CartProductDetail: {
+      screen: ProductDetail,
+    },
+  },
+  {
+    headerMode: 'none',
+  }
+);
+
 const tabScreensConfig = {
   Products: {
     screen: ProductStackNavigator,
@@ -38,7 +52,7 @@ const tabScreensConfig = {
     },
   },
   Cart: {
-    screen: Cart,
+    screen: CartStackNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => (
         <Ionicons name="cart-outline" size={25} color={tabInfo.tintColor} />

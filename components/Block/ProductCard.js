@@ -1,12 +1,16 @@
 import React from 'react';
-import { Image, StyleSheet, View, ImageBackground } from 'react-native';
+import { StyleSheet, View, ImageBackground } from 'react-native';
 import COLORS from '../../constants/COLORS';
 import { getTag } from '../../utilities/tag';
 import UiIconButton from '../UI/IconButton';
 import UiText from '../UI/Text';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemToCart } from '../../store/actions/cartActions';
 
 const ProductCardBlock = ({ data }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
   return (
     <View style={Styles.container}>
       <View style={Styles.imageSec}>
@@ -19,7 +23,13 @@ const ProductCardBlock = ({ data }) => {
         />
       </View>
       <View style={Styles.infoSec}>
-        <UiIconButton style={Styles.addToBag}>
+        <UiIconButton
+          style={Styles.addToBag}
+          onPress={() => {
+            const isAlready = cartItems.find((item) => item.id === data.id);
+            addItemToCart(data.id, dispatch, isAlready);
+          }}
+        >
           <MaterialIcons name="shopping-bag" size={23} color="white" />
         </UiIconButton>
         <UiText style={Styles.title}>{data.title}</UiText>
