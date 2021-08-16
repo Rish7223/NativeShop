@@ -3,6 +3,7 @@ import {
   ADD_ITEM_CART,
   SET_ALERT,
   REMOVE_ALERT,
+  REMOVE_ITEM_CART,
 } from './types';
 import products from '../../dummy_data/products';
 
@@ -14,7 +15,7 @@ export const getCartItems = async (dispatch) => {
   }
 };
 
-export const addItemToCart = async (productId, dispatch, isAlready) => {
+export const addItemToCart = (productId, dispatch, isAlready) => {
   const product = products.find((item) => item.id === productId);
   if (!isAlready) {
     dispatch({ type: ADD_ITEM_CART, payload: product });
@@ -34,4 +35,9 @@ export const addItemToCart = async (productId, dispatch, isAlready) => {
       type: REMOVE_ALERT,
     });
   }, 3000);
+};
+
+export const removeItemFromCart = (dispatch, productId, cartList) => {
+  const newList = cartList.filter((item) => productId !== item.id);
+  dispatch({ type: REMOVE_ITEM_CART, payload: newList });
 };

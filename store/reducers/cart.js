@@ -19,6 +19,8 @@ const cart = (state = initialState, action) => {
       return state;
     case ADD_ITEM_CART:
       return { ...state, items: [payload, ...state.items] };
+    case REMOVE_ITEM_CART:
+      return { ...state, items: payload };
     default:
       return state;
   }

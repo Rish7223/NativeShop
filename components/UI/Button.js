@@ -5,7 +5,11 @@ import UiText from './Text';
 
 const UiButton = ({ children, onPress, style, textStyle }) => {
   return (
-    <Pressable onPress={onPress} style={{ ...Styles.button, ...style }}>
+    <Pressable
+      onPress={onPress}
+      style={{ ...Styles.button, ...style }}
+      android_ripple={{ color: '#ffffff55' }}
+    >
       <UiText style={{ ...Styles.text, ...textStyle }}>{children}</UiText>
     </Pressable>
   );

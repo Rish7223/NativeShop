@@ -3,12 +3,16 @@ import { StyleSheet, View, ImageBackground, Pressable } from 'react-native';
 import COLORS from '../../constants/COLORS';
 import UiIconButton from '../UI/IconButton';
 import UiText from '../UI/Text';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeItemFromCart } from '../../store/actions/cartActions';
 
 const CartProductCard = ({ productData, navigation }) => {
-  const { image, title, size, category, price } = productData;
+  const { image, title, price, id } = productData;
   const [quantity, setQuantity] = useState(1);
   const [productPrice, setProductPrice] = useState(price);
+  const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setProductPrice(price * quantity);
@@ -44,10 +48,9 @@ const CartProductCard = ({ productData, navigation }) => {
       <View style={Styles.contentView}>
         <View style={Styles.info}>
           <UiText style={Styles.title}>{title}</UiText>
-          <UiText style={Styles.size}>Size: M</UiText>
-        </View>
-        <View style={Styles.price}>
           <UiText style={Styles.priceText}>${productPrice}</UiText>
+        </View>
+        <View style={Styles.actionBox}>
           <View style={Styles.actions}>
             <UiIconButton
               style={Styles.actionBtnMinus}
@@ -60,9 +63,17 @@ const CartProductCard = ({ productData, navigation }) => {
               style={Styles.actionBtn}
               onPress={handleIncreaseQuantity}
             >
-              <AntDesign name="plus" size={16} color={COLORS.white} />
+              <AntDesign name="plus" size={14} color={COLORS.white} />
             </UiIconButton>
           </View>
+          <UiIconButton
+            style={Styles.deleteItemBtn}
+            onPress={() => {
+              removeItemFromCart(dispatch, id, cartItems);
+            }}
+          >
+            <Feather name="trash" color={COLORS.red} size={16} />
+          </UiIconButton>
         </View>
       </View>
     </View>
@@ -74,7 +85,7 @@ const Styles = StyleSheet.create({
     width: '100%',
     backgroundColor: COLORS.lightGrayColor,
     borderRadius: 10,
-    paddingVertical: 5,
+    paddingVertical: 10,
     marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
@@ -108,16 +119,16 @@ const Styles = StyleSheet.create({
     color: COLORS.textColorLight,
   },
 
-  price: {
+  actionBox: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 5,
   },
   priceText: {
-    fontFamily: 'Nunito-Bold',
-    fontSize: 18,
-    color: COLORS.primaryColor,
+    fontFamily: 'Nunito-SemiBold',
+    fontSize: 14,
+    color: COLORS.blue,
   },
   actions: {
     flexDirection: 'row',
@@ -130,8 +141,8 @@ const Styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   actionBtnMinus: {
-    height: 28,
-    width: 28,
+    height: 25,
+    width: 25,
     borderWidth: 1.5,
     borderColor: COLORS.textColorLight,
     borderRadius: 5,
@@ -143,6 +154,12 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
+  },
+  deleteItemBtn: {
+    borderWidth: 1,
+    borderColor: COLORS.textColorLight,
+    padding: 7,
+    borderRadius: 50,
   },
 });
 

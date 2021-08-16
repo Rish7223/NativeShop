@@ -8,6 +8,7 @@ import ProductInfoBlock from '../components/Block/ProductInfo';
 import UiAlert from '../components/UI/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../store/actions/cartActions';
+import UiIconButton from '../components/UI/IconButton';
 
 const ProductDetail = ({ navigation }) => {
   const [isFavItem, setIsFavItem] = useState(false);
@@ -38,7 +39,7 @@ const ProductDetail = ({ navigation }) => {
         <UiView style={Styles.container}>
           <ProductInfoBlock data={productData} />
         </UiView>
-        <Pressable
+        <UiIconButton
           style={Styles.addToCart}
           onPress={() => {
             const isAlready = cartItems.find(
@@ -48,7 +49,7 @@ const ProductDetail = ({ navigation }) => {
           }}
         >
           <Feather name="shopping-cart" size={20} color={COLORS.white} />
-        </Pressable>
+        </UiIconButton>
         <UiAlert />
       </View>
     </View>
@@ -96,12 +97,6 @@ const Styles = StyleSheet.create({
     elevation: 5,
     backgroundColor: COLORS.primaryColor,
   },
-  // addBtnText: {
-  //   marginLeft: 20,
-  //   fontSize: 20,
-  //   fontFamily: 'Nunito-SemiBold',
-  //   color: COLORS.white,
-  // },
 
   empty: {
     minHeight: 50,
