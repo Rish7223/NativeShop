@@ -50,15 +50,15 @@ const Styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'Nunito-Bold',
     color: COLORS.primaryColor,
   },
 
   tag: {
-    marginTop: 5,
+    marginTop: 0,
     fontSize: 15,
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'Nunito-SemiBold',
     color: COLORS.textColorLight,
   },
 
@@ -66,7 +66,7 @@ const Styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: 'Nunito-Bold',
     color: COLORS.primaryColor,
-    transform: [{ translateY: 15 }],
+    transform: [{ translateY: 15 }, { translateX: -3 }],
   },
   size: {
     marginTop: 20,
@@ -94,15 +94,16 @@ const Styles = StyleSheet.create({
     marginVertical: 20,
   },
   head: {
-    fontSize: 18,
+    fontSize: 17,
     fontFamily: 'Nunito-Bold',
     color: COLORS.primaryColor,
   },
   descriptionText: {
     marginTop: 10,
     fontSize: 15,
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'Nunito-SemiBold',
     color: COLORS.textColorLight,
+    letterSpacing: 0.2,
   },
 });
 

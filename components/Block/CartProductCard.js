@@ -5,12 +5,7 @@ import UiIconButton from '../UI/IconButton';
 import UiText from '../UI/Text';
 import { AntDesign } from '@expo/vector-icons';
 
-const CartProductCard = ({
-  productData,
-  navigation,
-  setTotalPrice,
-  totalPrice,
-}) => {
+const CartProductCard = ({ productData, navigation }) => {
   const { image, title, size, category, price } = productData;
   const [quantity, setQuantity] = useState(1);
   const [productPrice, setProductPrice] = useState(price);
@@ -77,12 +72,13 @@ const CartProductCard = ({
 const Styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: COLORS.bgColor,
+    backgroundColor: COLORS.lightGrayColor,
     borderRadius: 10,
     paddingVertical: 5,
     marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 10,
   },
   imageView: {
     width: 80,

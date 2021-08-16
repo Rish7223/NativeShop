@@ -6,6 +6,7 @@ export default {
   lightGrayColor: '#F6F6F6',
   bgColor: '#FDFDFD',
   white: '#ffffff',
+  whiteTrans: '#ffffffaa',
 
   red: '#fe2367',
 

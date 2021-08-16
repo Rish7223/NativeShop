@@ -6,10 +6,10 @@ import { Provider } from 'react-redux';
 import store from './store';
 // custom fonts
 const fontsData = {
-  Nunito: require('./assets/font/Nunito-Regular.ttf'),
-  'Nunito-light': require('./assets/font/Nunito-Light.ttf'),
-  'Nunito-SemiBold': require('./assets/font/Nunito-SemiBold.ttf'),
-  'Nunito-Bold': require('./assets/font/Nunito-Bold.ttf'),
+  Nunito: require('./assets/font/Inter-Regular.ttf'),
+  'Nunito-light': require('./assets/font/Inter-Light.ttf'),
+  'Nunito-SemiBold': require('./assets/font/Inter-Medium.ttf'),
+  'Nunito-Bold': require('./assets/font/Inter-SemiBold.ttf'),
 };
 
 export default function App() {
