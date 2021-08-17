@@ -5,13 +5,13 @@ import { AntDesign } from '@expo/vector-icons';
 import UiText from '../UI/Text';
 import COLORS from '../../constants/COLORS';
 
-const PaymentHeaderBlock = ({ navigation }) => {
+const PaymentHeaderBlock = ({ closeModel }) => {
   return (
     <View style={Styles.container}>
       <View style={Styles.leftContent}>
         <UiIconButton
           onPress={() => {
-            navigation.goBack();
+            closeModel(false);
           }}
         >
           <AntDesign name="arrowleft" size={25} color={COLORS.primaryColor} />
@@ -34,7 +34,7 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
     position: 'absolute',
     width: '100%',
-    top: 30,
+    top: 5,
     zIndex: 30,
   },
 

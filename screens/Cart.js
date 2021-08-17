@@ -8,10 +8,12 @@ import COLORS from '../constants/COLORS';
 import UiText from '../components/UI/Text';
 import { LinearGradient } from 'expo-linear-gradient';
 import EmptyCart from '../components/Block/EmptyCart';
+import PaymentModelSection from '../components/Section/PaymentModel';
 
 const Cart = ({ navigation }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [isModelVisible, setModelVisible] = useState(false);
   useEffect(() => {
     let priceTotal = 0;
     cartItems.forEach((item) => {
@@ -21,6 +23,12 @@ const Cart = ({ navigation }) => {
   }, [cartItems]);
   return (
     <View style={styles.view}>
+      <PaymentModelSection
+        navigation={navigation}
+        isVisible={isModelVisible}
+        setIsVisible={setModelVisible}
+        totalPrice={totalPrice}
+      />
       <CartHeaderBlock navigation={navigation} />
       {cartItems.length > 0 ? (
         <>
@@ -46,7 +54,7 @@ const Cart = ({ navigation }) => {
               style={styles.checkoutBtn}
               textStyle={styles.checkoutText}
               onPress={() => {
-                navigation.navigate('Payment');
+                setModelVisible(true);
               }}
             >
               Checkout

@@ -28,7 +28,7 @@ const Styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     paddingVertical: 20,
-    minHeight: 160,
+    minHeight: 150,
     borderRadius: 20,
     justifyContent: 'space-between',
     position: 'relative',

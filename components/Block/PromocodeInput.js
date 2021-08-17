@@ -1,16 +1,23 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  KeyboardAvoidingView,
+} from 'react-native';
 import COLORS from '../../constants/COLORS';
 import UiButton from '../UI/Button';
 
 const PromocodeInputBlock = () => {
   return (
-    <View style={Styles.container}>
-      <TextInput style={Styles.input} placeholder="Promo Code" />
-      <UiButton style={Styles.button} textStyle={Styles.btnText}>
-        Apply
-      </UiButton>
-    </View>
+    <KeyboardAvoidingView>
+      <View style={Styles.container}>
+        <TextInput style={Styles.input} placeholder="Promo Code" />
+        <UiButton style={Styles.button} textStyle={Styles.btnText}>
+          Apply
+        </UiButton>
+      </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -39,6 +46,8 @@ const Styles = StyleSheet.create({
   },
   btnText: {
     color: COLORS.white,
+    fontFamily: 'Nunito-SemiBold',
+    fontSize: 16,
   },
 });
 
