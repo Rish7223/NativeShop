@@ -94,7 +94,7 @@ const Styles = StyleSheet.create({
   imageView: {
     width: 80,
     height: 80,
-    borderRadius: 20,
+    borderRadius: 10,
     overflow: 'hidden',
     padding: 15,
     backgroundColor: COLORS.bgColor,

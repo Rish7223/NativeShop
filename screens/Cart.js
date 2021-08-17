@@ -7,6 +7,7 @@ import UiButton from '../components/UI/Button';
 import COLORS from '../constants/COLORS';
 import UiText from '../components/UI/Text';
 import { LinearGradient } from 'expo-linear-gradient';
+import EmptyCart from '../components/Block/EmptyCart';
 
 const Cart = ({ navigation }) => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -44,6 +45,9 @@ const Cart = ({ navigation }) => {
             <UiButton
               style={styles.checkoutBtn}
               textStyle={styles.checkoutText}
+              onPress={() => {
+                navigation.navigate('Payment');
+              }}
             >
               Checkout
             </UiButton>
@@ -51,19 +55,7 @@ const Cart = ({ navigation }) => {
           </LinearGradient>
         </>
       ) : (
-        <View style={styles.emptyPage}>
-          <View style={styles.illustration}>
-            <ImageBackground
-              resizeMode="center"
-              style={styles.illustrationImage}
-              source={require('../assets/images/empty-cart.png')}
-            ></ImageBackground>
-          </View>
-          <View style={styles.emptyTextBox}>
-            <UiText style={styles.emptyText}>Your cart is empty.</UiText>
-            <UiText style={styles.emptyText}>Please add a few items.</UiText>
-          </View>
-        </View>
+        <EmptyCart />
       )}
     </View>
   );
@@ -119,29 +111,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     elevation: 3,
-  },
-  emptyPage: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  illustration: {
-    height: 200,
-    width: 300,
-  },
-  illustrationImage: {
-    height: '100%',
-    width: '100%',
-  },
-  emptyTextBox: {
-    marginTop: 20,
-  },
-  emptyText: {
-    fontFamily: 'Nunito-Bold',
-    fontSize: 18,
-    textAlign: 'center',
-    lineHeight: 22,
-    letterSpacing: 0.7,
   },
 });
 

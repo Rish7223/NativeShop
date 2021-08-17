@@ -1,46 +1,11 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import { createStackNavigator } from 'react-navigation-stack';
 import { Ionicons } from '@expo/vector-icons';
 import COLORS from '../constants/COLORS';
 import { createAppContainer } from 'react-navigation';
-
-import Products from '../screens/Products';
-import Cart from '../screens/Cart';
+import { ProductStackNavigator } from './ProductNavigator';
 import Profile from '../screens/Profile';
-import ProductDetail from '../screens/ProductDetail';
-import Category from '../screens/Category';
-
-const ProductStackNavigator = createStackNavigator(
-  {
-    Products: {
-      screen: Products,
-    },
-    ProductDetail: {
-      screen: ProductDetail,
-    },
-    Category: {
-      screen: Category,
-    },
-  },
-  {
-    headerMode: 'none',
-  }
-);
-
-const CartStackNavigator = createStackNavigator(
-  {
-    Cart: {
-      screen: Cart,
-    },
-    CartProductDetail: {
-      screen: ProductDetail,
-    },
-  },
-  {
-    headerMode: 'none',
-  }
-);
+import { CartStackNavigator } from './CartNavigator';
 
 const tabScreensConfig = {
   Products: {
